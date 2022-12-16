@@ -20,7 +20,7 @@ developmentChains.includes(network.name)
                   const accounts = await ethers.getSigners()
 
                   console.log("Setting up Listener...")
-                  await new Promise((resolve, reject) => {
+                  await new Promise(async (resolve, reject) => {
                       lottery.once("WinnerPicked", async () => {
                           console.log("WinnerPicked event fired!")
 
