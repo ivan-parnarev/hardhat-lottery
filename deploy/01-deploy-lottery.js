@@ -30,7 +30,7 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
     }
 
     const entranceFee = networkConfig[chainId]["lotteryEntranceFee"]
-    const gasLane = networkConfig[chainId]["gasLane"]
+    const keyHash = networkConfig[chainId]["keyHash"]
     const callbackGasLimit = networkConfig[chainId]["callbackGasLimit"]
     const interval = networkConfig[chainId]["keepersUpdateInterval"]
 
@@ -42,7 +42,7 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
     const args = [
         vrfCoordinatorV2Address,
         entranceFee,
-        gasLane,
+        keyHash,
         subscriptionId,
         callbackGasLimit,
         interval,

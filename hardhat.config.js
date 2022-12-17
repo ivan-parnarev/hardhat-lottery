@@ -18,13 +18,15 @@ module.exports = {
     networks: {
         hardhat: {
             chainId: 31337,
-            blockConfirmations: 1,
         },
         goerli: {
             url: GOERLI_RPC_URL,
             accounts: [PRIVATE_KEY],
             saveDeployments: true,
             chainId: 5,
+        },
+        localhost: {
+            chainId: 31337,
         },
     },
     solidity: {

@@ -75,9 +75,9 @@ contract Lottery is VRFConsumerBaseV2, AutomationCompatibleInterface {
     function checkUpkeep(
         bytes memory /* checkData */
     ) public view override returns (bool upkeepNeeded, bytes memory /* performData */) {
-        bool isOpen = (LotteryState.OPEN == s_lotteryState);
+        bool isOpen = LotteryState.OPEN == s_lotteryState;
         bool timePassed = ((block.timestamp - s_lastTimeStamp) > i_interval);
-        bool hasParticipants = (s_participants.length > 0);
+        bool hasParticipants = s_participants.length > 0;
         bool hasBalance = address(this).balance > 0;
         upkeepNeeded = (isOpen && timePassed && hasParticipants && hasBalance);
         return (upkeepNeeded, "0x0");
